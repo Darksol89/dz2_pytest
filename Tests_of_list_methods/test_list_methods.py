@@ -9,14 +9,14 @@ import pytest
 def test_add_new_item_in_list(create_list, item):
     create_list.append(item)
     print(create_list)
-    assert len(create_list) > 10
+    assert item in create_list
 
 
 # Тест с проверкой удаления определенного элемента из списка
 @pytest.mark.parametrize(('element'), [2, 5, 7])
 def test_remove_item_from_list(create_list, element):
     create_list.remove(element)
-    assert len(create_list) < 10
+    assert not element in create_list
 
 
 # Тест на удаление всех элементов из списка
